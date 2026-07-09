@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Startora HQ — The Operating System for Legal Business in Nigeria</title>
+<title>Startora HQ — Legal Compliance Infrastructure for Nigerian Businesses</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,680&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -12,8 +12,8 @@
     --emerald-800:#083A2C;
     --emerald-700:#0B4F3F;
     --emerald-500:#12805F;
-    --lime:#C6FF5E;
-    --lime-dark:#A9E63F;
+    --gold:#D6A24A;
+    --gold-dark:#B98A34;
     --cream:#FBF8F1;
     --paper:#FFFFFF;
     --ink:#0A1F19;
@@ -32,7 +32,7 @@
   a{color:inherit;text-decoration:none;}
   img,svg{display:block;}
   .wrap{max-width:1140px;margin:0 auto;padding:0 40px;}
-  ::selection{background:var(--lime);color:var(--ink);}
+  ::selection{background:var(--gold);color:var(--ink);}
 
   /* ---------- NAV ---------- */
   nav.top{
@@ -50,7 +50,7 @@
     width:32px;height:32px;border-radius:9px;
     background:linear-gradient(155deg,var(--emerald-500),var(--emerald-900));
     display:flex;align-items:center;justify-content:center;
-    color:var(--lime);font-family:'Fraunces',serif;font-weight:680;font-size:17px;
+    color:var(--gold);font-family:'Fraunces',serif;font-weight:680;font-size:17px;
     box-shadow:0 3px 10px rgba(5,42,32,0.28);
   }
   .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:18.5px;letter-spacing:-0.01em;}
@@ -72,16 +72,16 @@
   .btn{
     display:inline-flex;align-items:center;gap:8px;
     font-family:'Inter',sans-serif;font-weight:600;font-size:14px;
-    padding:12px 22px;border-radius:100px;cursor:pointer;border:none;
+    padding:12px 22px;border-radius:8px;cursor:pointer;border:none;
     transition:transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s ease, background .22s ease;
     white-space:nowrap;
   }
   .btn svg{width:14px;height:14px;transition:transform .22s ease;}
   .btn-primary{
-    background:var(--lime);color:var(--emerald-900);border:1.5px solid transparent;
-    box-shadow:0 1px 0 rgba(0,0,0,0.05), 0 6px 16px rgba(198,255,94,0.35);
+    background:var(--gold);color:var(--emerald-900);border:1.5px solid transparent;
+    box-shadow:0 1px 2px rgba(10,31,25,0.06), 0 8px 18px rgba(10,31,25,0.14);
   }
-  .btn-primary:hover{background:var(--lime-dark);transform:translateY(-2px);box-shadow:0 10px 22px rgba(198,255,94,0.45);}
+  .btn-primary:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 12px 24px rgba(10,31,25,0.2);}
   .btn-primary:hover svg{transform:translateX(3px);}
   .btn-dark{
     background:var(--ink);color:var(--cream);border:1.5px solid transparent;
@@ -99,12 +99,22 @@
   }
   .btn-ghost-light:hover{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.4);transform:translateY(-2px);}
   .btn-sm{padding:9px 16px;font-size:13px;}
+  .btn-text{
+    padding:0;background:none;color:var(--ink);font-weight:600;font-size:14px;
+    border-bottom:1.5px solid var(--line);border-radius:0;padding-bottom:2px;
+  }
+  .btn-text:hover{border-color:var(--ink);}
+  .btn-text-light{
+    padding:0;background:none;color:var(--cream);font-weight:600;font-size:14px;
+    border-bottom:1.5px solid rgba(251,248,241,0.32);border-radius:0;padding-bottom:2px;
+  }
+  .btn-text-light:hover{border-color:var(--cream);}
 
   /* ---------- HERO ---------- */
   .hero{
     position:relative;
     background:
-      radial-gradient(ellipse 900px 500px at 78% -10%, rgba(198,255,94,0.16), transparent 60%),
+      radial-gradient(ellipse 900px 500px at 78% -10%, rgba(214,162,74,0.16), transparent 60%),
       radial-gradient(ellipse 700px 500px at 10% 10%, rgba(18,128,95,0.55), transparent 55%),
       linear-gradient(165deg, var(--emerald-900), #031B14 78%);
     color:var(--cream);
@@ -119,27 +129,20 @@
     pointer-events:none;
   }
   .hero-inner{position:relative;max-width:1140px;margin:0 auto;}
-  .badge-row{display:flex;align-items:center;gap:12px;margin-bottom:30px;flex-wrap:wrap;}
-  .badge{
+  .hero-meta{
     display:inline-flex;align-items:center;gap:8px;
-    font-family:'Space Grotesk',monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;
-    color:var(--lime);background:rgba(198,255,94,0.1);border:1px solid rgba(198,255,94,0.28);
-    padding:8px 14px;border-radius:100px;
+    font-family:'Space Grotesk',monospace;font-size:12px;letter-spacing:0.06em;
+    color:rgba(251,248,241,0.55);margin-bottom:34px;
   }
-  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(198,255,94,0.25);}
-  .badge.outline{background:transparent;color:rgba(251,248,241,0.7);border-color:rgba(251,248,241,0.2);}
+  .hero-meta .dot{color:var(--gold);}
 
   .hero h1{
     font-family:'Fraunces',serif;font-weight:600;
-    font-size:clamp(40px,6.4vw,74px);
-    line-height:1.03;letter-spacing:-0.02em;
-    max-width:860px;margin-bottom:26px;
+    font-size:clamp(38px,5.6vw,60px);
+    line-height:1.14;letter-spacing:-0.015em;
+    max-width:780px;margin-bottom:26px;
   }
-  .hero h1 .accent{
-    font-style:italic;font-weight:400;
-    background:linear-gradient(95deg,var(--lime),#8FE0B8);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
+  .hero-highlight{color:var(--gold);}
   .hero-sub{
     font-size:19px;line-height:1.65;color:rgba(251,248,241,0.72);max-width:560px;margin-bottom:40px;
   }
@@ -148,7 +151,7 @@
     display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(251,248,241,0.5);
     margin-bottom:54px;
   }
-  .hero-note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);flex-shrink:0;}
+  .hero-note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
 
   /* floating stat cards overlapping bottom */
   .stat-float{
@@ -173,12 +176,16 @@
   /* ---------- SECTION SHARED ---------- */
   section{padding:150px 40px 100px;}
   section.tight{padding-top:100px;}
-  .section-eyebrow{
-    display:inline-flex;align-items:center;gap:9px;
-    font-family:'Space Grotesk',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
-    color:var(--emerald-700);margin-bottom:20px;font-weight:600;
+  .section-tag{
+    display:flex;align-items:baseline;gap:12px;margin-bottom:22px;
   }
-  .section-eyebrow::before{content:"";width:26px;height:1.5px;background:var(--emerald-700);}
+  .section-tag .num{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:20px;color:var(--emerald-700);
+  }
+  .section-tag .label{
+    font-size:13px;color:var(--muted);font-weight:500;
+    padding-left:12px;border-left:1px solid var(--line);
+  }
   h2{
     font-family:'Fraunces',serif;font-weight:560;font-size:clamp(28px,3.6vw,42px);
     letter-spacing:-0.015em;line-height:1.12;max-width:680px;
@@ -209,12 +216,12 @@
   /* ---------- LIFECYCLE / SOLUTION ---------- */
   .lifecycle-section{
     background:
-      radial-gradient(ellipse 800px 500px at 85% 0%, rgba(198,255,94,0.10), transparent 60%),
+      radial-gradient(ellipse 800px 500px at 85% 0%, rgba(214,162,74,0.10), transparent 60%),
       linear-gradient(180deg, var(--ink), #0E2B22);
     color:var(--cream);
   }
-  .lifecycle-section .section-eyebrow{color:var(--lime);}
-  .lifecycle-section .section-eyebrow::before{background:var(--lime);}
+  .lifecycle-section .section-tag .num{color:var(--gold);}
+  .lifecycle-section .section-tag .label{color:rgba(251,248,241,0.5);border-color:rgba(251,248,241,0.18);}
   .lifecycle-section h2{color:var(--cream);}
   .lifecycle-section .section-intro p{color:rgba(251,248,241,0.62);}
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
@@ -223,35 +230,31 @@
     border-radius:18px;padding:36px 32px;
     transition:transform .25s ease, background .25s ease, border-color .25s ease;
   }
-  .card:hover{transform:translateY(-4px);background:rgba(255,255,255,0.07);border-color:rgba(198,255,94,0.3);}
+  .card:hover{transform:translateY(-4px);background:rgba(255,255,255,0.07);border-color:rgba(214,162,74,0.3);}
   .card .ic{
-    width:46px;height:46px;border-radius:12px;background:rgba(198,255,94,0.12);
-    display:flex;align-items:center;justify-content:center;color:var(--lime);margin-bottom:22px;
+    width:46px;height:46px;border-radius:12px;background:rgba(214,162,74,0.12);
+    display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:22px;
   }
   .card .ic svg{width:21px;height:21px;}
-  .card .tag{font-family:'Space Grotesk',monospace;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--lime);display:block;margin-bottom:10px;}
+  .card .tag{font-family:'Space Grotesk',monospace;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px;}
   .card h3{font-family:'Fraunces',serif;font-weight:560;font-size:22px;margin-bottom:12px;}
   .card p{font-size:14.5px;line-height:1.68;color:rgba(251,248,241,0.62);}
 
   /* ---------- HOW IT WORKS ---------- */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
-  .steps::before{
-    content:"";position:absolute;top:23px;left:0;right:0;height:1.5px;
-    background:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 14px);
+  .how-steps{display:flex;flex-direction:column;}
+  .how-step{
+    display:grid;grid-template-columns:110px 1fr;gap:32px;
+    padding:34px 0;border-bottom:1px solid var(--line);align-items:start;
   }
-  .step{position:relative;padding-right:26px;}
-  .step-num{
-    position:relative;z-index:1;
-    width:46px;height:46px;border-radius:50%;
-    background:var(--paper);border:1.5px solid var(--emerald-700);color:var(--emerald-700);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Space Grotesk',monospace;font-weight:700;font-size:15px;margin-bottom:24px;
-    transition:background .25s ease, color .25s ease;
+  .how-step:first-child{padding-top:0;}
+  .how-step:last-child{border-bottom:none;}
+  .big-num{
+    font-family:'Fraunces',serif;font-weight:400;font-size:52px;line-height:1;
+    color:transparent;-webkit-text-stroke:1.5px var(--emerald-700);
   }
-  .step:hover .step-num{background:var(--emerald-700);color:var(--lime);}
-  .step h3{font-family:'Fraunces',serif;font-weight:560;font-size:18.5px;margin-bottom:10px;}
-  .step p{font-size:14px;line-height:1.65;color:var(--muted);}
-  .how-cta{margin-top:52px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .how-step h3{font-family:'Fraunces',serif;font-weight:560;font-size:19px;margin-bottom:8px;}
+  .how-step p{font-size:14.5px;line-height:1.65;color:var(--muted);max-width:460px;}
+  .how-cta{margin-top:46px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
   .how-cta .note{font-size:13.5px;color:var(--muted);}
 
   /* ---------- TRACTION ---------- */
@@ -260,7 +263,7 @@
     padding:64px 60px;box-shadow:0 20px 50px -30px rgba(5,42,32,0.2);
     display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;
   }
-  .quote-mark{font-family:'Fraunces',serif;font-size:64px;color:var(--lime-dark);line-height:0.5;margin-bottom:18px;display:block;}
+  .quote-mark{font-family:'Fraunces',serif;font-size:64px;color:var(--gold-dark);line-height:0.5;margin-bottom:18px;display:block;}
   blockquote{
     font-family:'Fraunces',serif;font-weight:500;font-size:27px;line-height:1.42;color:var(--ink);
   }
@@ -274,45 +277,41 @@
   .traction-notes .row span:last-child{font-family:'Space Grotesk',monospace;font-weight:700;color:var(--emerald-700);font-size:16px;}
 
   /* ---------- TEAM ---------- */
-  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .team{
+    display:grid;grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--line);
+  }
   .member{
-    background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px 22px;
-    transition:transform .25s ease, box-shadow .25s ease;
+    padding:28px 32px;border-bottom:1px solid var(--line);
   }
-  .member:hover{transform:translateY(-4px);box-shadow:0 16px 32px -16px rgba(5,42,32,0.22);}
-  .avatar{
-    width:46px;height:46px;border-radius:12px;margin-bottom:18px;
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--cream);
-    background:linear-gradient(155deg,var(--emerald-500),var(--emerald-900));
-  }
-  .member .name{font-family:'Fraunces',serif;font-size:16.5px;font-weight:600;margin-bottom:3px;}
-  .member .role{font-family:'Space Grotesk',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.06em;color:var(--emerald-700);margin-bottom:12px;font-weight:600;}
-  .member p{font-size:13px;line-height:1.55;color:var(--muted);}
+  .member:nth-child(odd){border-right:1px solid var(--line);}
+  .member-head{display:flex;flex-direction:column;gap:3px;margin-bottom:12px;}
+  .member .name{font-family:'Fraunces',serif;font-size:18px;font-weight:600;}
+  .member .role{font-family:'Space Grotesk',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--emerald-700);font-weight:600;}
+  .member p{font-size:13.5px;line-height:1.6;color:var(--muted);max-width:340px;}
 
   /* ---------- CLOSING CTA ---------- */
   .closing-section{
     position:relative;overflow:hidden;
     background:
-      radial-gradient(ellipse 800px 450px at 20% 10%, rgba(198,255,94,0.13), transparent 60%),
+      radial-gradient(ellipse 800px 450px at 20% 10%, rgba(214,162,74,0.13), transparent 60%),
       radial-gradient(ellipse 700px 500px at 90% 90%, rgba(18,128,95,0.35), transparent 60%),
       linear-gradient(165deg, var(--emerald-900), #031B14 80%);
     color:var(--cream);text-align:center;
   }
   .closing-wrap{max-width:720px;}
   .closing-brand{
-    display:flex;align-items:center;justify-content:center;gap:9px;
-    font-family:'Space Grotesk',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
-    color:var(--lime);font-weight:600;margin:0 auto 20px;
+    text-align:center;
+    font-family:'Space Grotesk',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin:0 auto 20px;
   }
-  .closing-brand .dash{width:26px;height:1.5px;background:var(--lime);display:inline-block;flex-shrink:0;}
   .closing-section h2{color:var(--cream);margin:0 auto 20px;max-width:640px;text-align:center;}
   .closing-sub{font-size:17px;line-height:1.6;color:rgba(251,248,241,0.68);max-width:520px;margin:0 auto 40px;}
   .closing-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:26px;}
   .demo-note{
     display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(251,248,241,0.5);
   }
-  .demo-note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);flex-shrink:0;}
+  .demo-note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;}
 
   /* ---------- FOOTER ---------- */
   footer{padding:70px 40px 44px;}
@@ -347,8 +346,8 @@
   @media (max-width:900px){
     .problem-grid{grid-template-columns:1fr;}
     .cards{grid-template-columns:1fr;}
-    .steps{grid-template-columns:1fr 1fr;row-gap:36px;}
-    .steps::before{display:none;}
+    .how-step{grid-template-columns:56px 1fr;gap:18px;padding:26px 0;}
+    .big-num{font-size:32px;-webkit-text-stroke:1px var(--emerald-700);}
     .traction-panel{grid-template-columns:1fr;padding:44px 32px;}
     .team{grid-template-columns:1fr 1fr;}
     .stat-float{grid-template-columns:1fr 1fr;}
@@ -361,14 +360,15 @@
     .hero{padding:80px 22px 0;}
     .closing-wrap{max-width:100%;}
     .team{grid-template-columns:1fr;}
+    .member:nth-child(odd){border-right:none;}
     .stat-float{grid-template-columns:1fr 1fr;border-radius:16px;}
     .stat-float .stat{padding:22px 18px;}
     .hero-actions{flex-direction:column;align-items:stretch;}
     .hero-actions .btn{justify-content:center;}
     nav.top .inner{padding-top:14px;padding-bottom:14px;flex-wrap:wrap;row-gap:10px;}
     .brand-name{font-size:16px;}
-    .nav-actions{width:100%;justify-content:stretch;gap:8px;}
-    .nav-actions .btn{flex:1;justify-content:center;padding:10px 12px;font-size:12.5px;}
+    .nav-actions{width:100%;justify-content:space-between;gap:14px;}
+    .nav-actions .btn-dark{flex:1;justify-content:center;padding:10px 12px;font-size:12.5px;}
     .nav-actions .btn svg{display:none;}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .fade-in{opacity:1;transform:none;transition:none;}}
@@ -389,10 +389,9 @@
       <a href="#team">Team</a>
     </div>
     <div class="nav-actions">
-      <a class="btn btn-ghost btn-sm" href="mailto:uchechukwumbah86@gmail.com">Get in touch</a>
-      <a class="btn btn-primary btn-sm" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
+      <a class="btn btn-text" href="mailto:uchechukwumbah86@gmail.com">Get in touch</a>
+      <a class="btn btn-dark btn-sm" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
         View prototype
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
     </div>
   </div>
@@ -400,12 +399,9 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <div class="badge-row">
-      <span class="badge"><span class="dot"></span> Registered Company · RC-9582172</span>
-      <span class="badge outline">Lagos, Nigeria</span>
-    </div>
-    <h1>The operating system for<br><span class="accent">legal business</span> in Nigeria.</h1>
-    <p class="hero-sub">Startora HQ replaces agents who disappear and lawyers few can afford with one AI-powered platform that registers, protects, and keeps a business compliant — for good.</p>
+    <div class="hero-meta">RC-9582172 <span class="dot">·</span> Lagos, Nigeria</div>
+    <h1>245,000 Nigerian businesses register every year.<br>Almost none are told what happens <span class="hero-highlight">after the certificate</span>.</h1>
+    <p class="hero-sub">Startora HQ replaces the agent who disappears and the lawyer nobody can afford — with one platform that registers, protects, and keeps a business compliant for good.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
         View the live prototype
@@ -429,7 +425,7 @@
 
 <section id="problem" class="tight">
   <div class="wrap">
-    <div class="section-eyebrow fade-in">The problem</div>
+    <div class="section-tag fade-in"><span class="num">01</span><span class="label">Problem</span></div>
     <div class="section-intro fade-in">
       <h2>Compliance in Nigeria is broken by design</h2>
       <p>3.1 million registered businesses. 245,000 new ones every year. Almost none of them have a system tracking what they legally owe.</p>
@@ -464,7 +460,7 @@
 
 <section id="solution" class="lifecycle-section">
   <div class="wrap">
-    <div class="section-eyebrow fade-in">The solution</div>
+    <div class="section-tag fade-in"><span class="num">02</span><span class="label">Solution</span></div>
     <div class="section-intro fade-in">
       <h2>Get legal once.<br>Stay legal forever.</h2>
       <p>Startora is not a directory or a template marketplace — it's a full-lifecycle compliance engine that carries a business from formation through every obligation that follows.</p>
@@ -494,37 +490,43 @@
 
 <section id="how">
   <div class="wrap">
-    <div class="section-eyebrow fade-in">How it works</div>
     <div class="section-intro fade-in">
       <h2>An autonomous engine, not a directory</h2>
       <p>Startora maps, files, and tracks every legal obligation a business carries — with a human check at every filing.</p>
     </div>
-    <div class="steps fade-in">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Answer a few questions</h3>
-        <p>A founder describes their business in the app — sector, structure, and goals — in under five minutes.</p>
+    <div class="how-steps fade-in">
+      <div class="how-step">
+        <span class="big-num">01</span>
+        <div>
+          <h3>Answer a few questions</h3>
+          <p>A founder describes their business in the app — sector, structure, and goals — in under five minutes.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>AI maps the requirements</h3>
-        <p>Startora identifies exactly which registrations, licences, and filings apply — CAC, SCUML, NAFDAC, NDPR.</p>
+      <div class="how-step">
+        <span class="big-num">02</span>
+        <div>
+          <h3>AI maps the requirements</h3>
+          <p>Startora identifies exactly which registrations, licences, and filings apply — CAC, SCUML, NAFDAC, NDPR.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Filed, with a human check</h3>
-        <p>Every document is prepared and submitted automatically, with a verification checkpoint before it goes out.</p>
+      <div class="how-step">
+        <span class="big-num">03</span>
+        <div>
+          <h3>Filed, with a human check</h3>
+          <p>Every document is prepared and submitted automatically, with a verification checkpoint before it goes out.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>Compliance, tracked for life</h3>
-        <p>A live compliance profile tracks every deadline going forward, alerting the founder before anything is missed.</p>
+      <div class="how-step">
+        <span class="big-num">04</span>
+        <div>
+          <h3>Compliance, tracked for life</h3>
+          <p>A live compliance profile tracks every deadline going forward, alerting the founder before anything is missed.</p>
+        </div>
       </div>
     </div>
     <div class="how-cta fade-in">
       <a class="btn btn-dark" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
         See it in action — open the prototype
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
       <span class="note">Pre-loaded with demo data — no sign-up required to explore</span>
     </div>
@@ -551,34 +553,26 @@
 
 <section id="team">
   <div class="wrap">
-    <div class="section-eyebrow fade-in">The team</div>
+    <div class="section-tag fade-in"><span class="num">03</span><span class="label">Team</span></div>
     <div class="section-intro fade-in">
       <h2>Built by people who did the work manually first</h2>
       <p>Legal, product, and growth — the three disciplines compliance infrastructure actually requires.</p>
     </div>
     <div class="team fade-in">
       <div class="member">
-        <div class="avatar">MG</div>
-        <div class="name">Mbah Godswill</div>
-        <div class="role">Founder &amp; CEO</div>
+        <div class="member-head"><span class="name">Mbah Godswill</span><span class="role">Founder &amp; CEO</span></div>
         <p>25 months validating the market by hand. Previously founded Gelidata and Flickmart.</p>
       </div>
       <div class="member">
-        <div class="avatar">OP</div>
-        <div class="name">Ogbuehi Princess, Esq.</div>
-        <div class="role">Legal &amp; Compliance</div>
+        <div class="member-head"><span class="name">Ogbuehi Princess, Esq.</span><span class="role">Legal &amp; Compliance</span></div>
         <p>Corporate lawyer, Chams Holdco Plc. Nigerian Bar. Regulatory compliance &amp; governance.</p>
       </div>
       <div class="member">
-        <div class="avatar">OS</div>
-        <div class="name">Obasi Success</div>
-        <div class="role">Product &amp; Technology</div>
+        <div class="member-head"><span class="name">Obasi Success</span><span class="role">Product &amp; Technology</span></div>
         <p>Built and launched multiple web products across Nigeria. Leads app architecture.</p>
       </div>
       <div class="member">
-        <div class="avatar">OO</div>
-        <div class="name">Obiefoka Onyinye</div>
-        <div class="role">Growth &amp; Operations</div>
+        <div class="member-head"><span class="name">Obiefoka Onyinye</span><span class="role">Growth &amp; Operations</span></div>
         <p>Leads acquisition strategy, content, and operational execution as Startora scales.</p>
       </div>
     </div>
@@ -587,17 +581,14 @@
 
 <section id="cta" class="closing-section">
   <div class="wrap closing-wrap fade-in">
-    <div class="closing-brand">
-      <span class="dash"></span>Startora HQ<span class="dash"></span>
-    </div>
+    <div class="closing-brand">Startora HQ</div>
     <h2>Building the infrastructure Nigerian founders never had.</h2>
     <p class="closing-sub">61 businesses and ₦2.4M in revenue already proved the demand. The prototype shows how the platform turns that into software.</p>
     <div class="closing-actions">
       <a class="btn btn-primary" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
         View the live prototype
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
       </a>
-      <a class="btn btn-ghost-light" href="mailto:uchechukwumbah86@gmail.com">uchechukwumbah86@gmail.com</a>
+      <a class="btn btn-text-light" href="mailto:uchechukwumbah86@gmail.com">uchechukwumbah86@gmail.com</a>
     </div>
     <span class="demo-note">Pre-loaded with demo data — every screen is free to explore, no sign-up required</span>
   </div>
@@ -610,7 +601,7 @@
         <div class="brand-mark">S</div>
         <div class="brand-name">Startora HQ</div>
       </div>
-      <p>The operating system for legal business in Nigeria — registration, protection, and compliance in one platform.</p>
+      <p>Registration, protection, and compliance — in one platform built for Nigerian founders.</p>
     </div>
     <div class="foot-links">
       <div class="foot-col">
