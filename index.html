@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startora HQ — The Operating System for Legal Business in Nigeria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,680&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emerald-900:#052A20;
+    --emerald-800:#083A2C;
+    --emerald-700:#0B4F3F;
+    --emerald-500:#12805F;
+    --lime:#C6FF5E;
+    --lime-dark:#A9E63F;
+    --cream:#FBF8F1;
+    --paper:#FFFFFF;
+    --ink:#0A1F19;
+    --muted:#62766D;
+    --line:rgba(10,31,25,0.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 40px;}
+  ::selection{background:var(--lime);color:var(--ink);}
+
+  /* ---------- NAV ---------- */
+  nav.top{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,248,241,0.78);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.top .inner{
+    max-width:1140px;margin:0 auto;padding:18px 40px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:32px;height:32px;border-radius:9px;
+    background:linear-gradient(155deg,var(--emerald-500),var(--emerald-900));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--lime);font-family:'Fraunces',serif;font-weight:680;font-size:17px;
+    box-shadow:0 3px 10px rgba(5,42,32,0.28);
+  }
+  .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:18.5px;letter-spacing:-0.01em;}
+  .brand-name .sub{
+    display:block;font-family:'Space Grotesk',monospace;font-size:9.5px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:1px;
+  }
+  .nav-links{display:flex;gap:34px;font-size:14px;font-weight:500;color:var(--muted);}
+  .nav-links a{position:relative;padding:4px 0;transition:color .2s ease;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a::after{
+    content:"";position:absolute;bottom:0;left:0;width:0;height:1.5px;background:var(--emerald-500);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-actions{display:flex;gap:10px;align-items:center;}
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Inter',sans-serif;font-weight:600;font-size:14px;
+    padding:12px 22px;border-radius:100px;cursor:pointer;border:none;
+    transition:transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s ease, background .22s ease;
+    white-space:nowrap;
+  }
+  .btn svg{width:14px;height:14px;transition:transform .22s ease;}
+  .btn-primary{
+    background:var(--lime);color:var(--emerald-900);border:1.5px solid transparent;
+    box-shadow:0 1px 0 rgba(0,0,0,0.05), 0 6px 16px rgba(198,255,94,0.35);
+  }
+  .btn-primary:hover{background:var(--lime-dark);transform:translateY(-2px);box-shadow:0 10px 22px rgba(198,255,94,0.45);}
+  .btn-primary:hover svg{transform:translateX(3px);}
+  .btn-dark{
+    background:var(--ink);color:var(--cream);border:1.5px solid transparent;
+    box-shadow:0 6px 16px rgba(10,31,25,0.18);
+  }
+  .btn-dark:hover{background:var(--emerald-900);transform:translateY(-2px);box-shadow:0 10px 22px rgba(10,31,25,0.28);}
+  .btn-dark:hover svg{transform:translateX(3px);}
+  .btn-ghost{
+    background:transparent;color:var(--ink);border:1.5px solid var(--line);
+  }
+  .btn-ghost:hover{border-color:var(--ink);background:rgba(10,31,25,0.03);}
+  .btn-ghost-light{
+    background:rgba(255,255,255,0.08);color:var(--cream);border:1.5px solid rgba(255,255,255,0.22);
+    backdrop-filter:blur(6px);
+  }
+  .btn-ghost-light:hover{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.4);transform:translateY(-2px);}
+  .btn-sm{padding:9px 16px;font-size:13px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 78% -10%, rgba(198,255,94,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 10% 10%, rgba(18,128,95,0.55), transparent 55%),
+      linear-gradient(165deg, var(--emerald-900), #031B14 78%);
+    color:var(--cream);
+    padding:100px 40px 0;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size:22px 22px;
+    mask-image:radial-gradient(ellipse 900px 600px at 60% 20%, black, transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;max-width:1140px;margin:0 auto;}
+  .badge-row{display:flex;align-items:center;gap:12px;margin-bottom:30px;flex-wrap:wrap;}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Space Grotesk',monospace;font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--lime);background:rgba(198,255,94,0.1);border:1px solid rgba(198,255,94,0.28);
+    padding:8px 14px;border-radius:100px;
+  }
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(198,255,94,0.25);}
+  .badge.outline{background:transparent;color:rgba(251,248,241,0.7);border-color:rgba(251,248,241,0.2);}
+
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:clamp(40px,6.4vw,74px);
+    line-height:1.03;letter-spacing:-0.02em;
+    max-width:860px;margin-bottom:26px;
+  }
+  .hero h1 .accent{
+    font-style:italic;font-weight:400;
+    background:linear-gradient(95deg,var(--lime),#8FE0B8);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    font-size:19px;line-height:1.65;color:rgba(251,248,241,0.72);max-width:560px;margin-bottom:40px;
+  }
+  .hero-actions{display:flex;gap:14px;margin-bottom:22px;flex-wrap:wrap;}
+  .hero-note{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(251,248,241,0.5);
+    margin-bottom:54px;
+  }
+  .hero-note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);flex-shrink:0;}
+
+  /* floating stat cards overlapping bottom */
+  .stat-float{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    background:var(--paper);border-radius:20px;
+    box-shadow:0 30px 60px -20px rgba(5,42,32,0.35), 0 0 0 1px rgba(255,255,255,0.6) inset;
+    transform:translateY(50%);
+    overflow:hidden;
+  }
+  .stat-float .stat{
+    padding:34px 28px;border-right:1px solid var(--line);
+  }
+  .stat-float .stat:last-child{border-right:none;}
+  .stat-float .num{
+    font-family:'Space Grotesk',monospace;font-weight:700;font-size:30px;color:var(--emerald-700);display:block;margin-bottom:6px;
+    letter-spacing:-0.01em;
+  }
+  .stat-float .label{font-size:12.5px;color:var(--muted);font-weight:500;}
+  .hero-spacer{height:96px;}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:150px 40px 100px;}
+  section.tight{padding-top:100px;}
+  .section-eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:'Space Grotesk',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--emerald-700);margin-bottom:20px;font-weight:600;
+  }
+  .section-eyebrow::before{content:"";width:26px;height:1.5px;background:var(--emerald-700);}
+  h2{
+    font-family:'Fraunces',serif;font-weight:560;font-size:clamp(28px,3.6vw,42px);
+    letter-spacing:-0.015em;line-height:1.12;max-width:680px;
+  }
+  .section-intro{margin-bottom:52px;max-width:680px;}
+  .section-intro h2{margin-bottom:18px;}
+  .section-intro p{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:520px;}
+
+  /* ---------- PROBLEM ---------- */
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  .problem-grid p{font-size:17px;line-height:1.75;color:var(--muted);}
+  .problem-grid p strong{color:var(--ink);font-weight:600;}
+  .problem-grid p + p{margin-top:18px;}
+  .fail-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+  .fail-list li{
+    display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line);
+  }
+  .fail-list li:first-child{padding-top:0;}
+  .fail-list .ic{
+    flex-shrink:0;width:34px;height:34px;border-radius:9px;
+    background:rgba(11,79,63,0.07);display:flex;align-items:center;justify-content:center;
+    color:var(--emerald-700);
+  }
+  .fail-list .ic svg{width:16px;height:16px;}
+  .fail-list .txt h4{font-size:15px;font-weight:600;margin-bottom:3px;}
+  .fail-list .txt p{font-size:13.5px;color:var(--muted);line-height:1.5;}
+
+  /* ---------- LIFECYCLE / SOLUTION ---------- */
+  .lifecycle-section{
+    background:
+      radial-gradient(ellipse 800px 500px at 85% 0%, rgba(198,255,94,0.10), transparent 60%),
+      linear-gradient(180deg, var(--ink), #0E2B22);
+    color:var(--cream);
+  }
+  .lifecycle-section .section-eyebrow{color:var(--lime);}
+  .lifecycle-section .section-eyebrow::before{background:var(--lime);}
+  .lifecycle-section h2{color:var(--cream);}
+  .lifecycle-section .section-intro p{color:rgba(251,248,241,0.62);}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{
+    background:rgba(255,255,255,0.045);border:1px solid rgba(255,255,255,0.09);
+    border-radius:18px;padding:36px 32px;
+    transition:transform .25s ease, background .25s ease, border-color .25s ease;
+  }
+  .card:hover{transform:translateY(-4px);background:rgba(255,255,255,0.07);border-color:rgba(198,255,94,0.3);}
+  .card .ic{
+    width:46px;height:46px;border-radius:12px;background:rgba(198,255,94,0.12);
+    display:flex;align-items:center;justify-content:center;color:var(--lime);margin-bottom:22px;
+  }
+  .card .ic svg{width:21px;height:21px;}
+  .card .tag{font-family:'Space Grotesk',monospace;font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:var(--lime);display:block;margin-bottom:10px;}
+  .card h3{font-family:'Fraunces',serif;font-weight:560;font-size:22px;margin-bottom:12px;}
+  .card p{font-size:14.5px;line-height:1.68;color:rgba(251,248,241,0.62);}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .steps::before{
+    content:"";position:absolute;top:23px;left:0;right:0;height:1.5px;
+    background:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 14px);
+  }
+  .step{position:relative;padding-right:26px;}
+  .step-num{
+    position:relative;z-index:1;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--paper);border:1.5px solid var(--emerald-700);color:var(--emerald-700);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Grotesk',monospace;font-weight:700;font-size:15px;margin-bottom:24px;
+    transition:background .25s ease, color .25s ease;
+  }
+  .step:hover .step-num{background:var(--emerald-700);color:var(--lime);}
+  .step h3{font-family:'Fraunces',serif;font-weight:560;font-size:18.5px;margin-bottom:10px;}
+  .step p{font-size:14px;line-height:1.65;color:var(--muted);}
+  .how-cta{margin-top:52px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .how-cta .note{font-size:13.5px;color:var(--muted);}
+
+  /* ---------- TRACTION ---------- */
+  .traction-panel{
+    background:var(--paper);border-radius:24px;border:1px solid var(--line);
+    padding:64px 60px;box-shadow:0 20px 50px -30px rgba(5,42,32,0.2);
+    display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;
+  }
+  .quote-mark{font-family:'Fraunces',serif;font-size:64px;color:var(--lime-dark);line-height:0.5;margin-bottom:18px;display:block;}
+  blockquote{
+    font-family:'Fraunces',serif;font-weight:500;font-size:27px;line-height:1.42;color:var(--ink);
+  }
+  .attrib{margin-top:22px;font-size:13.5px;color:var(--muted);font-weight:500;}
+  .traction-notes .row{
+    display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .traction-notes .row:first-child{padding-top:0;}
+  .traction-notes .row:last-child{border-bottom:none;}
+  .traction-notes .row span:first-child{font-size:14px;color:var(--muted);}
+  .traction-notes .row span:last-child{font-family:'Space Grotesk',monospace;font-weight:700;color:var(--emerald-700);font-size:16px;}
+
+  /* ---------- TEAM ---------- */
+  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .member{
+    background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px 22px;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .member:hover{transform:translateY(-4px);box-shadow:0 16px 32px -16px rgba(5,42,32,0.22);}
+  .avatar{
+    width:46px;height:46px;border-radius:12px;margin-bottom:18px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--cream);
+    background:linear-gradient(155deg,var(--emerald-500),var(--emerald-900));
+  }
+  .member .name{font-family:'Fraunces',serif;font-size:16.5px;font-weight:600;margin-bottom:3px;}
+  .member .role{font-family:'Space Grotesk',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.06em;color:var(--emerald-700);margin-bottom:12px;font-weight:600;}
+  .member p{font-size:13px;line-height:1.55;color:var(--muted);}
+
+  /* ---------- CLOSING CTA ---------- */
+  .closing-section{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(ellipse 800px 450px at 20% 10%, rgba(198,255,94,0.13), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 90% 90%, rgba(18,128,95,0.35), transparent 60%),
+      linear-gradient(165deg, var(--emerald-900), #031B14 80%);
+    color:var(--cream);text-align:center;
+  }
+  .closing-wrap{max-width:720px;}
+  .closing-brand{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    font-family:'Space Grotesk',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--lime);font-weight:600;margin:0 auto 20px;
+  }
+  .closing-brand .dash{width:26px;height:1.5px;background:var(--lime);display:inline-block;flex-shrink:0;}
+  .closing-section h2{color:var(--cream);margin:0 auto 20px;max-width:640px;text-align:center;}
+  .closing-sub{font-size:17px;line-height:1.6;color:rgba(251,248,241,0.68);max-width:520px;margin:0 auto 40px;}
+  .closing-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:26px;}
+  .demo-note{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(251,248,241,0.5);
+  }
+  .demo-note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);flex-shrink:0;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:70px 40px 44px;}
+  .foot-top{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:40px;
+    max-width:1140px;margin:0 auto 40px;flex-wrap:wrap;
+  }
+  .foot-brand .brand{margin-bottom:14px;}
+  .foot-brand p{font-size:13.5px;color:var(--muted);max-width:260px;line-height:1.6;}
+  .foot-links{display:flex;gap:60px;flex-wrap:wrap;}
+  .foot-col h5{
+    font-family:'Space Grotesk',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:14px;font-weight:600;
+  }
+  .foot-col a{display:block;font-size:14px;color:var(--ink);margin-bottom:10px;transition:color .2s ease;}
+  .foot-col a:hover{color:var(--emerald-700);}
+  .foot-bottom{
+    max-width:1140px;margin:0 auto;padding-top:26px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  }
+  .foot-legal{display:flex;gap:10px;align-items:center;font-family:'Space Grotesk',monospace;font-size:12px;color:var(--muted);flex-wrap:wrap;}
+  .foot-legal .sep{opacity:0.4;}
+  .foot-legal .rc{
+    background:rgba(11,79,63,0.08);color:var(--emerald-700);padding:4px 10px;border-radius:100px;font-weight:600;
+  }
+  .foot-copy{font-size:12.5px;color:var(--muted);}
+
+  /* fade-in */
+  .fade-in{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .fade-in.show{opacity:1;transform:translateY(0);}
+
+  @media (max-width:900px){
+    .problem-grid{grid-template-columns:1fr;}
+    .cards{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr 1fr;row-gap:36px;}
+    .steps::before{display:none;}
+    .traction-panel{grid-template-columns:1fr;padding:44px 32px;}
+    .team{grid-template-columns:1fr 1fr;}
+    .stat-float{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .foot-links{gap:36px;}
+  }
+  @media (max-width:600px){
+    .wrap,section,nav.top .inner{padding-left:22px;padding-right:22px;}
+    section{padding:110px 22px 70px;}
+    .hero{padding:80px 22px 0;}
+    .closing-wrap{max-width:100%;}
+    .team{grid-template-columns:1fr;}
+    .stat-float{grid-template-columns:1fr 1fr;border-radius:16px;}
+    .stat-float .stat{padding:22px 18px;}
+    .hero-actions{flex-direction:column;align-items:stretch;}
+    .hero-actions .btn{justify-content:center;}
+    nav.top .inner{padding-top:14px;padding-bottom:14px;flex-wrap:wrap;row-gap:10px;}
+    .brand-name{font-size:16px;}
+    .nav-actions{width:100%;justify-content:stretch;gap:8px;}
+    .nav-actions .btn{flex:1;justify-content:center;padding:10px 12px;font-size:12.5px;}
+    .nav-actions .btn svg{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;} .fade-in{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="inner">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div class="brand-name">Startora HQ<span class="sub">Legal Infrastructure</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#how">How it works</a>
+      <a href="#team">Team</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm" href="mailto:uchechukwumbah86@gmail.com">Get in touch</a>
+      <a class="btn btn-primary btn-sm" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
+        View prototype
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge-row">
+      <span class="badge"><span class="dot"></span> Registered Company · RC-9582172</span>
+      <span class="badge outline">Lagos, Nigeria</span>
+    </div>
+    <h1>The operating system for<br><span class="accent">legal business</span> in Nigeria.</h1>
+    <p class="hero-sub">Startora HQ replaces agents who disappear and lawyers few can afford with one AI-powered platform that registers, protects, and keeps a business compliant — for good.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
+        View the live prototype
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="btn btn-ghost-light" href="mailto:uchechukwumbah86@gmail.com">
+        Get in touch
+      </a>
+    </div>
+    <span class="hero-note">Pre-loaded with demo data — every screen is free to explore</span>
+
+    <div class="stat-float fade-in">
+      <div class="stat"><span class="num">₦2.4M</span><span class="label">Revenue generated</span></div>
+      <div class="stat"><span class="num">61+</span><span class="label">Businesses served</span></div>
+      <div class="stat"><span class="num">85%</span><span class="label">From referrals</span></div>
+      <div class="stat"><span class="num">39%</span><span class="label">Profit margin</span></div>
+    </div>
+  </div>
+  <div class="hero-spacer"></div>
+</header>
+
+<section id="problem" class="tight">
+  <div class="wrap">
+    <div class="section-eyebrow fade-in">The problem</div>
+    <div class="section-intro fade-in">
+      <h2>Compliance in Nigeria is broken by design</h2>
+      <p>3.1 million registered businesses. 245,000 new ones every year. Almost none of them have a system tracking what they legally owe.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="fade-in">
+        <p><strong>Agents sell a certificate and vanish the moment it's issued</strong> — no guidance on what comes next.</p>
+        <p><strong>Lawyers are too expensive for most founders to afford in the first place</strong>, so legal advice never enters the picture at all.</p>
+        <p><strong>Founders discover obligations like SCUML, NDPR, trademarks, and annual returns only after they've already missed them</strong> — usually at the worst possible moment, mid-raise or mid-audit.</p>
+      </div>
+      <ul class="fail-list fade-in">
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M9 16h6M9 8h6M5 4h14v16H5z" opacity="0"/><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+          <div class="txt"><h4>Agents disappear after the certificate</h4><p>No guidance on what legal obligations follow registration.</p></div>
+        </li>
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+          <div class="txt"><h4>Lawyers are unaffordable at scale</h4><p>Most Nigerian founders simply can't afford one in the first place.</p></div>
+        </li>
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></span>
+          <div class="txt"><h4>Hidden obligations surface too late</h4><p>SCUML, NDPR, and trademark gaps appear only after enforcement.</p></div>
+        </li>
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 4v8h8"/></svg></span>
+          <div class="txt"><h4>No infrastructure to track compliance</h4><p>Deadlines and filings fall through the cracks with no system in place.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="solution" class="lifecycle-section">
+  <div class="wrap">
+    <div class="section-eyebrow fade-in">The solution</div>
+    <div class="section-intro fade-in">
+      <h2>Get legal once.<br>Stay legal forever.</h2>
+      <p>Startora is not a directory or a template marketplace — it's a full-lifecycle compliance engine that carries a business from formation through every obligation that follows.</p>
+    </div>
+    <div class="cards fade-in">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+        <span class="tag">Register</span>
+        <h3>Formation</h3>
+        <p>CAC company registration and post-incorporation setup — done correctly the first time, with directors and structure in place.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6z"/></svg></div>
+        <span class="tag">Protect</span>
+        <h3>Protection</h3>
+        <p>Trademark filing, SCUML registration, NAFDAC where applicable, and NDPR data-protection compliance from day one.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3M21 3v6h-6"/></svg></div>
+        <span class="tag">Comply</span>
+        <h3>Compliance</h3>
+        <p>Annual returns, tax filings, and regulatory monitoring — tracked automatically so nothing is missed again.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-eyebrow fade-in">How it works</div>
+    <div class="section-intro fade-in">
+      <h2>An autonomous engine, not a directory</h2>
+      <p>Startora maps, files, and tracks every legal obligation a business carries — with a human check at every filing.</p>
+    </div>
+    <div class="steps fade-in">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Answer a few questions</h3>
+        <p>A founder describes their business in the app — sector, structure, and goals — in under five minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>AI maps the requirements</h3>
+        <p>Startora identifies exactly which registrations, licences, and filings apply — CAC, SCUML, NAFDAC, NDPR.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Filed, with a human check</h3>
+        <p>Every document is prepared and submitted automatically, with a verification checkpoint before it goes out.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Compliance, tracked for life</h3>
+        <p>A live compliance profile tracks every deadline going forward, alerting the founder before anything is missed.</p>
+      </div>
+    </div>
+    <div class="how-cta fade-in">
+      <a class="btn btn-dark" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
+        See it in action — open the prototype
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <span class="note">Pre-loaded with demo data — no sign-up required to explore</span>
+    </div>
+  </div>
+</section>
+
+<section id="traction">
+  <div class="wrap">
+    <div class="traction-panel fade-in">
+      <div>
+        <span class="quote-mark">&ldquo;</span>
+        <blockquote>We spent 25 months proving founders will pay for this — before writing a single line of software.</blockquote>
+        <div class="attrib">Mbah Godswill, Founder &amp; CEO</div>
+      </div>
+      <div class="traction-notes">
+        <div class="row"><span>Revenue, last 10 months</span><span>₦1.6M</span></div>
+        <div class="row"><span>Advertising spend to date</span><span>₦0</span></div>
+        <div class="row"><span>Year 1 target</span><span>₦82.5M</span></div>
+        <div class="row"><span>Year 3 target</span><span>₦412.5M</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="section-eyebrow fade-in">The team</div>
+    <div class="section-intro fade-in">
+      <h2>Built by people who did the work manually first</h2>
+      <p>Legal, product, and growth — the three disciplines compliance infrastructure actually requires.</p>
+    </div>
+    <div class="team fade-in">
+      <div class="member">
+        <div class="avatar">MG</div>
+        <div class="name">Mbah Godswill</div>
+        <div class="role">Founder &amp; CEO</div>
+        <p>25 months validating the market by hand. Previously founded Gelidata and Flickmart.</p>
+      </div>
+      <div class="member">
+        <div class="avatar">OP</div>
+        <div class="name">Ogbuehi Princess, Esq.</div>
+        <div class="role">Legal &amp; Compliance</div>
+        <p>Corporate lawyer, Chams Holdco Plc. Nigerian Bar. Regulatory compliance &amp; governance.</p>
+      </div>
+      <div class="member">
+        <div class="avatar">OS</div>
+        <div class="name">Obasi Success</div>
+        <div class="role">Product &amp; Technology</div>
+        <p>Built and launched multiple web products across Nigeria. Leads app architecture.</p>
+      </div>
+      <div class="member">
+        <div class="avatar">OO</div>
+        <div class="name">Obiefoka Onyinye</div>
+        <div class="role">Growth &amp; Operations</div>
+        <p>Leads acquisition strategy, content, and operational execution as Startora scales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta" class="closing-section">
+  <div class="wrap closing-wrap fade-in">
+    <div class="closing-brand">
+      <span class="dash"></span>Startora HQ<span class="dash"></span>
+    </div>
+    <h2>Building the infrastructure Nigerian founders never had.</h2>
+    <p class="closing-sub">61 businesses and ₦2.4M in revenue already proved the demand. The prototype shows how the platform turns that into software.</p>
+    <div class="closing-actions">
+      <a class="btn btn-primary" href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">
+        View the live prototype
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="btn btn-ghost-light" href="mailto:uchechukwumbah86@gmail.com">uchechukwumbah86@gmail.com</a>
+    </div>
+    <span class="demo-note">Pre-loaded with demo data — every screen is free to explore, no sign-up required</span>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div class="brand-name">Startora HQ</div>
+      </div>
+      <p>The operating system for legal business in Nigeria — registration, protection, and compliance in one platform.</p>
+    </div>
+    <div class="foot-links">
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#how">How it works</a>
+        <a href="#team">Team</a>
+      </div>
+      <div class="foot-col">
+        <h5>Connect</h5>
+        <a href="https://startora-prototype.vercel.app/" target="_blank" rel="noopener">Live prototype</a>
+        <a href="mailto:uchechukwumbah86@gmail.com">Email us</a>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-legal">
+      <span>Startora HQ</span><span class="sep">·</span><span class="rc">RC-9582172</span><span class="sep">·</span><span>Lagos, Nigeria</span>
+    </div>
+    <div class="foot-copy">&copy; 2026 Startora HQ. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+  },{threshold:0.12});
+  document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
